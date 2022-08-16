@@ -49,12 +49,6 @@ btnRoll.addEventListener(`click`, function () {
         currentScore;
     } else {
       //Switch next player
-      // currentScore = 0;
-      // document.getElementById(`current--${activePlayer}`).textContent =
-      //   currentScore;
-      // activePlayer = activePlayer === 0 ? 1 : 0;
-      // player0El.classList.toggle(`player--active`);
-      // player1El.classList.toggle(`player--active`);
       switchPlayer();
     }
   }
@@ -77,6 +71,7 @@ btnHold.addEventListener(`click`, function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove(`player--active`);
+      diceEl.classList.add(`hidden`);
     } //Switch to next player
     else {
       switchPlayer();
