@@ -26,7 +26,7 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add(`hidden`);
 
-const scores = [0, 0];
+let scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 //Rolling dice functionality;
@@ -62,7 +62,7 @@ btnHold.addEventListener(`click`, function () {
       scores[activePlayer];
 
     //Chek if socre is >=100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       //Finish game
       gameOver = true;
       document
@@ -77,4 +77,21 @@ btnHold.addEventListener(`click`, function () {
       switchPlayer();
     }
   }
+});
+
+btnNew.addEventListener(`click`, function () {
+  gameOver = false;
+  scores = [0, 0];
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+  diceEl.classList.add(`hidden`);
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove(`player--winner`);
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add(`player--active`);
+  switchPlayer();
 });
